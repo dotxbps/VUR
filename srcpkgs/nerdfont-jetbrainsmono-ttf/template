@@ -1,0 +1,20 @@
+pkgname=nerdfont-jetbrainsmono-ttf
+version=2.1.0
+revision=2
+create_wrksrc=yes
+depends="font-util"
+short_desc="A Nerd Font patched version of JetBrains Mono"
+maintainer="siduck <siduck76@tutanota.com>"
+license="MIT"
+homepage="https://www.nerdfonts.com"
+distfiles="https://github.com/ryanoasis/nerd-fonts/releases/download/v${version}/JetBrainsMono.zip"
+checksum="842013fa44b6896d4eb91635a81ef75244d78d7f61ff866c9dfd3315a67788cd"
+
+font_dirs="/usr/share/fonts/TTF"
+
+do_install() {
+  	vmkdir usr/share/fonts/TTF
+	vcopy *.ttf usr/share/fonts/TTF
+}
+
+

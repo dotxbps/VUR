@@ -1,0 +1,13 @@
+*.swo
+*.swp
+*~
+\#*#
+*.o
+masterdir*
+hostdir*
+etc/conf
+etc/conf.*
+etc/virtual
+etc/xbps.d/custom
+.xbps-checkvers*.plist
+*privkey.pem
