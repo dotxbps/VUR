@@ -1,6 +1,6 @@
 
-# nvoid
-nvoid is a custom xbps-src repo / custom repo(with xbps binaries) that includes packages which can not be accepted into [void-packages](https://github.com/void-linux/void-packages/) or removed from it. 
+# vur
+vur is a custom xbps-src repo / custom repo(with xbps binaries) that includes packages which can not be accepted into [void-packages](https://github.com/void-linux/void-packages/) or removed from it. 
 
 
 ## using this custom repo to install binaries 
