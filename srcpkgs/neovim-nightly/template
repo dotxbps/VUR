@@ -1,0 +1,35 @@
+# Template file for 'neovim'
+pkgname=neovim
+version=0.5.0
+revision=1
+wrksrc="${pkgname}-nightly"
+build_style=cmake
+build_helper="qemu"
+hostmakedepends="pkg-config gettext gperf LuaJIT lua51-lpeg lua51-mpack tree-sitter"
+makedepends="libtermkey-devel libuv-devel libvterm-devel msgpack-devel LuaJIT-devel
+ libluv-devel tree-sitter-devel"
+depends="libvterm>=0.1.0"
+short_desc="Fork of Vim aiming to improve user experience, plugins and GUIs"
+maintainer="Steve Prybylski <sa.prybylx@gmail.com>"
+license="Apache-2.0, custom:Vim"
+homepage="https://neovim.io"
+distfiles="https://github.com/neovim/neovim/archive/nightly.tar.gz"
+#checksum=435d3c49dfa114bda6dc14b30ec0bb97634ac3a1a8ef831d074c605bdf6a5716
+checksum=4866e930382af5bee10539c65a6ceda78c73704a75c35b8cd4088439743990c5
+
+alternatives="
+ vi:vi:/usr/bin/nvim
+ vi:vi.1:/usr/share/man/man1/nvim.1
+ vi:view:/usr/bin/nvim
+ vi:view.1:/usr/share/man/man1/nvim.1
+ vim:vim:/usr/bin/nvim
+ vim:vim.1:/usr/share/man/man1/nvim.1"
+
+pre_configure() {
+	vsed -i runtime/CMakeLists.txt \
+		-e "s|\".*/bin/nvim|\${CMAKE_CROSSCOMPILING_EMULATOR} &|g"
+}
+
+post_install() {
+	vlicense LICENSE
+}
